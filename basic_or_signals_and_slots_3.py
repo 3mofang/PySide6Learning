@@ -25,6 +25,11 @@ class MainWindow(QMainWindow):
 
         # Hook up our custom slot method the_window_title_changed to the windows .windowTitleChanged signal
         self.windowTitleChanged.connect(self.the_window_title_changed)
+        # The signal of .windowTitleChanged only fires if the new title is changed from the previous one.
+        # If you set the same title multiple times, the signal will only be fired the first time.
+        # It is important to double-check the conditions under which signals fire, to avoid being surprised
+        # when using them in your app.
+
 
         # Set the central widget of the Window.
         self.setCentralWidget(self.button)
